@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.header h1 {
+  color: var(--purple);
+}

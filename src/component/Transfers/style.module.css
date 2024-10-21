@@ -1,0 +1,10 @@
+.container {
+  width: 272px;
+  padding: 20px;
+  background-color: var(--whitesmoke);
+}
+
+.container h2 {
+  margin: 0;
+  font-size: 20px;
+}

@@ -1,0 +1,26 @@
+.button:first-child {
+  border-radius: 10px 0px 0px 10px;
+}
+
+.button:nth-child(3) {
+  border-radius: 0px 10px 10px 0px;
+}
+
+.button {
+  cursor: pointer;
+  background-color: var(--whitesmoke);
+  color: var(--purple);
+  border: 1px solid var(--purple);
+  padding: 15px 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--purple);
+  color: var(--whitesmoke);
+}
+
+.button.active {
+  background-color: var(--purple);
+  color: var(--whitesmoke);
+}

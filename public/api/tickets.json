@@ -1,0 +1,76 @@
+{
+  "tickets": [
+    {
+      "id": 1,
+      "from": "Москва",
+      "to": "Сочи",
+      "company": "Победа",
+      "price": 5000,
+      "currency": "RUB",
+      "time": {
+        "startTime": "10:00",
+        "endTime": "12:00"
+      },
+      "duration": 120,
+
+      "connectionAmount": 0
+    },
+    {
+      "id": 2,
+      "from": "Москва",
+      "to": "Сочи",
+      "company": "Red Wings",
+      "price": 6000,
+      "currency": "RUB",
+      "time": {
+        "startTime": "11:00",
+        "endTime": "16:00"
+      },
+      "duration": 60,
+
+      "connectionAmount": 1
+    },
+    {
+      "id": 3,
+      "from": "Москва",
+      "to": "Сочи",
+      "company": "S7 Airlines",
+      "price": 5500,
+      "currency": "RUB",
+      "time": {
+        "startTime": "08:00",
+        "endTime": "15:00"
+      },
+      "duration": 190,
+      "connectionAmount": 0
+    },
+    {
+      "id": 4,
+      "from": "Москва",
+      "to": "Сочи",
+      "company": "S7 Airlines",
+      "price": 5500,
+      "currency": "RUB",
+      "time": {
+        "startTime": "08:00",
+        "endTime": "15:00"
+      },
+      "duration": 190,
+      "connectionAmount": 3
+    },
+    {
+      "id": 5,
+      "from": "Москва",
+      "to": "Сочи",
+      "company": "S7 Airlines",
+      "price": 5500,
+      "currency": "RUB",
+      "time": {
+        "startTime": "08:00",
+        "endTime": "15:00"
+      },
+      "duration": 190,
+      "connectionAmount": 3
+    }
+  ]
+}
