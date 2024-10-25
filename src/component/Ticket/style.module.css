@@ -1,6 +1,6 @@
 .ticket {
   padding: 15px 40px;
-  width: 80%;
+  width: 90%;
   border-radius: 10px;
   background-color: var(--whitesmoke);
 }
@@ -45,4 +45,15 @@ h3 {
   color: var(--lavender);
   font-weight: bold;
   margin-bottom: 5px !important;
+}
+
+@media (max-width: 430px) {
+  .ticket {
+    padding: 10px 30px;
+    width: 320px;
+  }
+  .details {
+    width: 100%;
+    margin-top: 15px;
+  }
 }

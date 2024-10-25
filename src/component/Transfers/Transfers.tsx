@@ -12,8 +12,10 @@ export default function Transfers() {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedOption = Number(event.target.value);
-    dispatch(filterByTransfers(selectedOption));
+    const selectedTransfers = event.target.checked
+      ? parseInt(event.target.value)
+      : null;
+    dispatch(filterByTransfers(selectedTransfers));
   };
 
   return (

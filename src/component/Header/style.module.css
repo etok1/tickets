@@ -7,3 +7,17 @@
 .header h1 {
   color: var(--purple);
 }
+
+@media screen and (max-width: 768px) {
+  .header {
+    justify-content: center;
+  }
+  .header h1 {
+    display: none;
+  }
+  .header img {
+    padding: 15px;
+    width: 68px;
+    height: 54px;
+  }
+}

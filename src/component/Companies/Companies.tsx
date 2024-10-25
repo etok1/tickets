@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import RadioBox from "./RadioBox/RadioBox";
 import style from "./style.module.css";
 import { useDispatch } from "react-redux";
@@ -8,10 +9,12 @@ const labels = ["Победа", "Red Wings", "S7 Airlines"];
 
 export default function Companies() {
   const dispatch = useDispatch<AppDispatch>();
+  const [selectedAirline, setSelectedAirline] = useState<string | null>(null);
 
   const handleFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedOption = event.target.value;
-    dispatch(filterByAirline(selectedOption));
+    const selectedAirline = event.target.checked ? event.target.value : null;
+    setSelectedAirline(selectedAirline);
+    dispatch(filterByAirline(selectedAirline));
   };
 
   return (
@@ -22,6 +25,7 @@ export default function Companies() {
           key={index}
           name={label}
           label={label}
+          checked={selectedAirline === label}
           onChange={handleFilter}
         />
       ))}

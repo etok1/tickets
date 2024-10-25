@@ -31,3 +31,15 @@
   margin-left: 10px;
   color: var(--purple);
 }
+
+@media screen and (max-width: 768px) {
+  .input {
+    border: 1px solid var(--whitesmoke);
+  }
+  .input:checked::after {
+    border: solid var(--whitesmoke);
+  }
+  .label {
+    color: var(--whitesmoke);
+  }
+}

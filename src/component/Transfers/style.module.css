@@ -2,9 +2,17 @@
   width: 272px;
   padding: 20px;
   background-color: var(--whitesmoke);
+  border-radius: 10px;
 }
 
 .container h2 {
   margin: 0;
   font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    background-color: transparent;
+    padding: 0px;
+  }
 }

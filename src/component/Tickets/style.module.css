@@ -4,3 +4,24 @@
   flex-direction: column;
   gap: 45px;
 }
+
+.button {
+  border: none;
+  outline: none;
+  align-self: center;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--purple);
+  padding: 15px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--whitesmoke);
+  cursor: pointer;
+  transition: all 0.5s ease;
+  margin-bottom: 25px;
+
+  &:hover {
+    background-color: var(--whitesmoke);
+    color: var(--purple);
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import style from "./style.module.css";
 import Ticket from "../Ticket/Ticket";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,7 +10,7 @@ export interface TicketTime {
   endTime: string;
 }
 
-export interface Ticket {
+export interface TicketType {
   id: number;
   from: string;
   to: string;
@@ -40,12 +40,13 @@ export default function Tickets() {
   return (
     <div className={style.tickets}>
       {checkedTickets.length > 0 ? (
-        checkedTickets.map((ticket: Ticket) => (
+        checkedTickets.map((ticket: TicketType) => (
           <Ticket key={ticket.id} ticket={ticket} />
         ))
       ) : (
         <p>No tickets available</p>
       )}
+      <button className={style.button}>Загрузить еще билеты</button>
     </div>
   );
 }

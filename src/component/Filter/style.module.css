@@ -24,3 +24,8 @@
   background-color: var(--purple);
   color: var(--whitesmoke);
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+}

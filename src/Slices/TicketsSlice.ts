@@ -20,6 +20,8 @@ export interface Ticket {
 interface TicketsState {
   tickets: Ticket[];
   filteredTickets: Ticket[];
+  selectedAirline: string | null;
+  selectedTransfers: number | null;
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
 }
@@ -27,6 +29,8 @@ interface TicketsState {
 const initialState: TicketsState = {
   tickets: [],
   filteredTickets: [],
+  selectedAirline: null,
+  selectedTransfers: null,
   status: "idle",
   error: null,
 };
@@ -43,29 +47,49 @@ export const fetchTickets = createAsyncThunk<Ticket[], void>(
   }
 );
 
+const applyFilteredTickets = (state: TicketsState) => {
+  let filtered = state.tickets;
+
+  if (state.selectedAirline) {
+    filtered = filtered.filter(
+      (ticket) => ticket.company === state.selectedAirline
+    );
+  }
+  if (state.selectedTransfers !== null) {
+    filtered = filtered.filter(
+      (ticket) => ticket.connectionAmount === state.selectedTransfers
+    );
+  }
+
+  return filtered;
+};
+
 const ticketsSlice = createSlice({
   name: "tickets",
   initialState,
   reducers: {
     filterByAirline: (state, action) => {
-      state.filteredTickets = state.tickets.filter(
-        (ticket) => ticket.company === action.payload
-      );
+      state.selectedAirline = action.payload;
+      state.filteredTickets = applyFilteredTickets(state);
     },
 
     filterByTransfers: (state, action) => {
-      state.filteredTickets = state.tickets.filter(
-        (ticket) => ticket.connectionAmount === action.payload
-      );
+      state.selectedTransfers = action.payload;
+      state.filteredTickets = applyFilteredTickets(state);
     },
     sortByPrice: (state) => {
-      state.tickets.sort((a, b) => a.price - b.price);
+      const filteredTicket = applyFilteredTickets(state);
+      state.filteredTickets = filteredTicket.sort((a, b) => a.price - b.price);
     },
     sortByDuration: (state) => {
-      state.tickets.sort((a, b) => a.duration - b.duration);
+      const filteredTicket = applyFilteredTickets(state);
+      state.filteredTickets = filteredTicket.sort(
+        (a, b) => a.duration - b.duration
+      );
     },
     sortByTransfers: (state) => {
-      state.tickets.sort(
+      const filteredTicket = applyFilteredTickets(state);
+      state.filteredTickets = filteredTicket.sort(
         (a, b) => (a.connectionAmount || 0) - (b.connectionAmount || 0)
       );
     },

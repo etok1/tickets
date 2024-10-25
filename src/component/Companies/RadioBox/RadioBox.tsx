@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./style.module.css";
 
 interface CheckBoxProps {
   name: string;
   label: string;
+  checked: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function RadioBox({ name, label, onChange }: CheckBoxProps) {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleRadioboxChange = () => {
-    setIsChecked((prevCheck) => !prevCheck);
-  };
-
+export default function RadioBox({
+  name,
+  label,
+  checked,
+  onChange,
+}: CheckBoxProps) {
   return (
     <div className={style.container}>
       <input
@@ -21,11 +21,8 @@ export default function RadioBox({ name, label, onChange }: CheckBoxProps) {
         id={name}
         value={name}
         name="company"
-        checked={isChecked}
-        onChange={(e) => {
-          handleRadioboxChange();
-          onChange(e);
-        }}
+        checked={checked}
+        onChange={onChange}
         className={style.input}
       />
       <label htmlFor={name} className={style.label}>
